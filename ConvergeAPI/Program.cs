@@ -50,9 +50,11 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddHttpContextAccessor(); 
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICommonService, CommonService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICommonRepository, CommonRepository>();
 
- builder.Services.AddSingleton<HttpContextAccessor>();
+builder.Services.AddSingleton<HttpContextAccessor>();
 
 
 builder.Services.AddSwaggerGen(c =>
