@@ -73,22 +73,15 @@ namespace DataAccessLayer.Repositories
                 using var connection = _context.CreateConnection();
                 var listschoolpage = (await connection.QueryAsync<SchoolModel>("GetSchool", param: param)).ToList();
                 dynamic obj = new ExpandoObject(); 
-                var objDict = (IDictionary<string, object>)obj;
-                //foreach (var item in listschoolpage)
-                //{
-                //    if (item.Value != null)
-                //    {
-                //        var deserializedValue = JsonDocument.Parse(item.Value); 
-                //        objDict[item?.Key?.Replace(" ",string.Empty)] = deserializedValue;
-                //    }
-                //}  
+                var objDict = (IDictionary<string, object>)obj; 
                 foreach (var item in listschoolpage)
                     if (item.Value != null) { 
                 var programContainer = JsonSerializer.Deserialize<Dictionary<string, object>>(item.Value);
                         if (programContainer.ContainsKey("JSON"))
                        {
-                        var courses = JsonSerializer.Deserialize<dynamic>(programContainer["JSON"].ToString());
-                            programContainer["JSON"] = courses; 
+                        var json = JsonSerializer.Deserialize<dynamic>(programContainer["JSON"].ToString());
+                         
+                            programContainer["JSON"] = json; 
                        }
                 objDict[item?.Key?.Replace(" ", string.Empty)] = programContainer;
                     }
@@ -99,7 +92,6 @@ namespace DataAccessLayer.Repositories
                 return null;
             }
         }
-
-     
+        
     }
 }
