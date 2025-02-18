@@ -12,7 +12,8 @@ namespace DataAccessLayer.Interface
         Task<User> Authenticate(string userId, string password); 
         Task<dynamic> ChangePassword(ChangePassword change);
         Task<dynamic> GetSchool(string? slug);
-         
+        Task<dynamic> DeleteTableRow(string? tableName, int? Id);
+
 
     }
 }
