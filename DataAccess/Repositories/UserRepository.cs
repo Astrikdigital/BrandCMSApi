@@ -114,5 +114,19 @@ namespace DataAccessLayer.Repositories
 
         }
 
+        public async Task<dynamic> GetIncomeTypes()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetIncomeTypes", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
     }
 }
