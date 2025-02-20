@@ -346,5 +346,32 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
+        [HttpGet("GetTestimonial")]
+        public async Task<IActionResult> GetTestimonial(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetTestimonial(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+        [HttpGet("GetAdmissionProcess")]
+        public async Task<IActionResult> GetAdmissionProcess(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetAdmissionProcess(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
     }
 }

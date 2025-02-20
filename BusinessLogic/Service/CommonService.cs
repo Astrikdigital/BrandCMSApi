@@ -206,7 +206,8 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.GetMajorPrograms();
             return user;
         }
-
+     
+        
         public async Task<dynamic> DeleteTableRow(string TableName, int? Id)
         {
             try
@@ -222,7 +223,17 @@ namespace BusinessLogicLayer.Service
 
         }
 
-
+        public async Task<dynamic> GetTestimonial(int? Id)
+        {
+            var user = await _commonRepository.GetTestimonial(Id);
+            return user;
+        }
+        public async Task<dynamic> GetAdmissionProcess(int? Id)
+        {
+            var user = await _commonRepository.GetAdmissionProcess(Id);
+            return user;
+        }
+        
 
     }
 }

@@ -32,6 +32,8 @@ namespace DataAccessLayer.Interface
         Task<dynamic> InsertUpdateProgram(Programs model);
         Task<dynamic> InsertUpdateCourse(Course model);
         Task<dynamic> InsertUpdateMajorProgram(MajorProgram model);
+        Task<dynamic> GetTestimonial(int? Id);
+        Task<dynamic> GetAdmissionProcess(int? Id);
     }
 }
 

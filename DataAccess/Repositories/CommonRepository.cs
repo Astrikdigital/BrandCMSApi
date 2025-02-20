@@ -314,6 +314,7 @@ namespace DataAccessLayer.Repositories
                 var listschoolpage = (await connection.QueryAsync<SchoolModel>("GetPageByType", param: param)).ToList();
                 dynamic obj = new ExpandoObject();
                 var objDict = (IDictionary<string, object>)obj;
+                var SectionIds = "";
                 foreach (var item in listschoolpage)
                     if (item.Value != null)
                     {
@@ -325,7 +326,10 @@ namespace DataAccessLayer.Repositories
                             programContainer["JSON"] = json;
                         }
                         objDict[item?.Key?.Replace(" ", string.Empty)] = programContainer;
+                        if(SectionIds == "") SectionIds= item.Id.ToString();
+                        else  SectionIds += ","+item.Id.ToString();
                     }
+                objDict["SectionIds"] = SectionIds;
                 return objDict;
             }
             catch (Exception ex)
@@ -423,6 +427,36 @@ namespace DataAccessLayer.Repositories
                 return null;
             }
         }
-        
+        public async Task<dynamic> GetTestimonial(int? Id)
+        {
+            var resp = new Object();
+            try
+            {
+                using var connection = _context.CreateConnection();
+                resp = (await connection.QueryAsync<dynamic>("GetTestimonial", new { Id = Id })).ToList();
+                return resp;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public async Task<dynamic> GetAdmissionProcess(int? Id)
+        {
+            var resp = new Object();
+            try
+            {
+                using var connection = _context.CreateConnection();
+                resp = (await connection.QueryAsync<dynamic>("GetAdmissionProcess", new { Id = Id })).ToList();
+                return resp;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
     }
 }

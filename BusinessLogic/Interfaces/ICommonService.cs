@@ -34,6 +34,7 @@ namespace BusinessLogicLayer.Interfaces
 
         Task<dynamic> GetBenefit(int? Id);
         Task<dynamic> GetStudentSuccess(int? Id);
-        
+        Task<dynamic> GetTestimonial(int? Id);
+        Task<dynamic> GetAdmissionProcess(int? Id);
     }
 }
