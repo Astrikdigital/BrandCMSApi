@@ -36,6 +36,42 @@ namespace BusinessLogicLayer.Service
             _durationInMinutes = int.Parse(configuration["Jwt:DurationInMinutes"]);
         }
 
-       
+        public async Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse)
+        {
+            var user = await _commonRepository.InsertupdateAboutTheCourse(AboutTheCourse);
+            return user;
+        }
+        public async Task<dynamic> GetPageByType(string Slug)
+        {
+            var user = await _commonRepository.GetPageByType(Slug);
+            return user;
+        }
+        public async Task<dynamic> GetMajorProgram(int? Id)
+        {
+            var user = await _commonRepository.GetMajorProgram(Id);
+            return user;
+        }
+        public async Task<dynamic> GetPotentialJobfield(int? Id)
+        {
+            var user = await _commonRepository.GetPotentialJobfield(Id);
+            return user;
+        }
+        public async Task<dynamic> GetMajor(int? Id)
+        {
+            var user = await _commonRepository.GetMajor(Id);
+            return user;
+        }
+        public async Task<dynamic> GetBenefit(int? Id)
+        {
+            var user = await _commonRepository.GetBenefit(Id);
+            return user;
+        }
+        public async Task<dynamic> GetStudentSuccess(int? Id)
+        {
+            var user = await _commonRepository.GetStudentSuccess(Id);
+            return user;
+        }
+        
+
     }
 }
