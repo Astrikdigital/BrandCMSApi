@@ -82,5 +82,12 @@ namespace BusinessLogicLayer.Service
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+
+        public async Task<dynamic> DeleteTableRow(string? tableName, int? Id)
+        {
+            var user = await _userRepository.DeleteTableRow(tableName, Id);
+            return user;
+        }
     }
 }

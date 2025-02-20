@@ -5,6 +5,7 @@ using DataAccess.DbContext;
 using DataAccessLayer.Interface;
 using ErrorLog;
 using Microsoft.AspNetCore.Http;
+using System.Data;
 using System.Dynamic;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
@@ -92,6 +93,40 @@ namespace DataAccessLayer.Repositories
                 return null;
             }
         }
-        
+
+
+        public async Task<dynamic> DeleteTableRow(string TableName, int? Id)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    tableName = TableName,
+                    Id = Id
+                };
+                return (await con.QueryAsync("DeleteTableRow", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetIncomeTypes()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetIncomeTypes", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
     }
 }

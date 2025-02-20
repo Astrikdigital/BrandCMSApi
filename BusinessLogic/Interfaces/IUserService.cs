@@ -12,6 +12,7 @@ namespace BusinessLogicLayer.Interfaces
         Task<User> Authenticate(string UserId,string UserPassword); 
         Task<dynamic> ChangePassword(ChangePassword changePassword);  
         Task<dynamic> GetSchool(string? slug);
+        Task<dynamic> DeleteTableRow(string? tableName, int? Id);
 
     }
 }

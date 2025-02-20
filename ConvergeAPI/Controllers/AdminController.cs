@@ -42,5 +42,21 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
+
+        [HttpGet("DeleteTableRow")]
+        public async Task<IActionResult> DeleteTableRow(string? tableName, int? Id)
+        {
+            try
+            {
+                var result = await _userService.DeleteTableRow(tableName, Id);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+
+        }
     }
 }
