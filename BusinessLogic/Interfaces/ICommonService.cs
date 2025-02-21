@@ -15,7 +15,7 @@ namespace BusinessLogicLayer.Interfaces
         
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
-
+        Task<dynamic> GetMajorProgramCourse();
         Task<dynamic> GetSchools();
         Task<dynamic> GetSchoolsById(int? Id);
         Task<dynamic> GetMajorById(int? Id);
@@ -59,22 +59,27 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> GetFAQ();
         Task<dynamic> GetFAQById(int? Id);
 
-        //Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model);
-        //Task<dynamic> GetKeyHighLight();
-        //Task<dynamic> GetKeyHighLightById(int? Id);
+        Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model);
+        Task<dynamic> GetKeyHighLight();
+        Task<dynamic> GetKeyHighLightById(int? Id);
 
-        //Task<dynamic> InsertUpdateModuleCourse(ModuleCourse model);
-        //Task<dynamic> GetModuleCourse();
-        //Task<dynamic> GetModuleCourseById(int? Id);
+        Task<dynamic> InsertUpdateModuleCourse(ModuleCourse model);
+        Task<dynamic> GetModuleCourse();
+        Task<dynamic> GetModuleCourseById(int? Id);
 
-        //Task<dynamic> InsertUpdateApplicationTips(ApplicationTipsModel model);
-        //Task<dynamic> GetApplicationTips();
-        //Task<dynamic> GetApplicationTipsById(int? Id);
+        Task<dynamic> InsertUpdateApplicationTips(ApplicationTipsModel model);
+        Task<dynamic> GetApplicationTips();
+        Task<dynamic> GetApplicationTipsById(int? Id);
 
 
-        //Task<dynamic> InsertUpdateDocumentRequired(DocumentRequiredModel model);
-        //Task<dynamic> GetDocumentRequired();
-        //Task<dynamic> GetDocumentRequiredById(int? Id);
+        Task<dynamic> InsertUpdateDocumentRequired(DocumentRequiredModel model);
+        Task<dynamic> GetDocumentRequired();
+        Task<dynamic> GetDocumentRequiredById(int? Id);
+
+
+        Task<dynamic> InsertUpdateStudentSuccess(StudentSucess model);
+        Task<dynamic> GetStudentSuccess();
+        Task<dynamic> GetStudentSuccessById(int? Id);
 
     }
 }
