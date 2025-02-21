@@ -21,6 +21,8 @@ namespace BusinessObjectsLayer.Entities
         public string? Testimonial { get; set; }
         public string? UnlockaWorld { get; set; }
         public string? WhyChooseus { get; set; }
+        public string? ChoosetheRight { get; set; }
+        public string? KeySkills { get; set; }
 
     }
      
