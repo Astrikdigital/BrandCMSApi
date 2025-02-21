@@ -94,7 +94,19 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-       
+        [HttpGet("GetMajorProgramCourse")]
+        public async Task<IActionResult> GetMajorProgramCourse()
+        {
+            try
+            {
+                var resp = await _commonService.GetMajorProgramCourse();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
 
         [HttpGet("GetSchools")]
         public async Task<IActionResult> GetSchools()

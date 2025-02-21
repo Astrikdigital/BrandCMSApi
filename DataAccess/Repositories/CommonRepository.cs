@@ -41,6 +41,20 @@ namespace DataAccessLayer.Repositories
 
         }
 
+        public async Task<dynamic> GetMajorProgramCourse()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetMajorProgramCourse", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
         public async Task<dynamic> GetSchoolsById(int? Id)
         {
             try
@@ -862,7 +876,7 @@ namespace DataAccessLayer.Repositories
                 var parameters = new
                 {
                     Id = model.Id,
-                    Heading = model.Heading,
+                    Heading = model.Heading?.Trim(),
                     MajorProgramCourseId = model.MajorProgramCourseId,
                     UserId = model.UserId
                 };

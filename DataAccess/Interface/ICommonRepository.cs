@@ -16,7 +16,7 @@ namespace DataAccessLayer.Interface
         Task<dynamic> GetPotentialJobfield(int? Id);
         Task<dynamic> GetBenefit(int? Id);
         Task<dynamic> GetStudentSuccess(int? Id);
-        
+        Task<dynamic> GetMajorProgramCourse();
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
         Task<dynamic> GetSchools();
         Task<dynamic> GetSchoolsById(int? Id);

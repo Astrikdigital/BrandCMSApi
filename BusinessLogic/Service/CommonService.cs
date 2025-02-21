@@ -81,7 +81,11 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.GetStudentSuccess(Id);
             return user;
         }
-        
+        public async Task<dynamic> GetMajorProgramCourse()
+        {
+            var user = await _commonRepository.GetMajorProgramCourse();
+            return user;
+        }
         public async Task<dynamic> GetSchools()
         {
             var user = await _commonRepository.GetSchools();

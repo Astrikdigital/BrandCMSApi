@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> GetPageByType(string Slug);
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
-
+        Task<dynamic> GetMajorProgramCourse();
         Task<dynamic> GetSchools();
         Task<dynamic> GetSchoolsById(int? Id);
         Task<dynamic> GetMajorById(int? Id);
@@ -78,5 +78,6 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> InsertUpdateStudentSuccess(StudentSucess model);
         Task<dynamic> GetStudentSuccess();
         Task<dynamic> GetStudentSuccessById(int? Id);
+
     }
 }
