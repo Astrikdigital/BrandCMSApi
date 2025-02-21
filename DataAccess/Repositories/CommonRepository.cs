@@ -3,6 +3,8 @@ using BusinessObjectsLayer.Entities;
 using Dapper;
 using DataAccess.DbContext;
 using DataAccessLayer.Interface;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using ErrorLog;
 using Microsoft.AspNetCore.Http;
@@ -11,6 +13,7 @@ using System.Data;
 using System.Dynamic;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataAccessLayer.Repositories
 {
@@ -49,6 +52,37 @@ namespace DataAccessLayer.Repositories
                 };
                 using var con = _context.CreateConnection();
                 return (await con.QueryAsync("GetSchoolById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetTestimonials()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetTestimonial", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetTestimonialsById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetTestimonialById", param: param, commandType: CommandType.StoredProcedure)).ToList();
             }
             catch (Exception ex)
             {
@@ -106,6 +140,20 @@ namespace DataAccessLayer.Repositories
             {
                 using var con = _context.CreateConnection();
                 return (await con.QueryAsync("GetProgram", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetBenefit()
+        {
+            try
+            {
+
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetBenefit", commandType: CommandType.StoredProcedure)).ToList();
             }
             catch (Exception ex)
             {
@@ -457,6 +505,262 @@ namespace DataAccessLayer.Repositories
                 return null;
             }
         }
+
+
+
+        public async Task<dynamic> InsertUpdatePotentialJobField(PotentialJobField model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Title = model.Title,
+                    UserId = model.UserId,
+
+                };
+                return (await con.QueryAsync("InsertUpdatePotentialJobField", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateBenefit(Benefit model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Heading = model.Heading,
+                    Image = model.MenuImage,
+                    Description = model.Description,
+                    UserId = model.UserId
+
+                };
+                return (await con.QueryAsync("InsertUpdateBenefit", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateTestimonial(Testimonial model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    Designation = model.Designation,
+                    Image = model.MenuImage,
+                    Heading = model.Heading,
+                    Description = model.Description,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateTestimonial", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetBenefitById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetBenefitById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+
+        public async Task<dynamic> GetAdmissionProcess()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetAdmissionProcess", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetAdmissionProcessById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetAdmissionProcessById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateAdmissionProcess(AdmissionProcessModel model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    LeftText = model.LeftText,
+                    RightText = model.RightText,
+                    UserId = model.UserId
+
+                };
+                return (await con.QueryAsync("InsertUpdateAdmissionProcess", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetKeySkill()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetKeySkill", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetKeySkillById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetKeySkillById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateKeySkill(KeySkill model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Title = model.Title,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateKeySkill", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+
+        #region FAQ_Repo
+        public async Task<dynamic> GetFAQ()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetFAQ", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetFAQById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetFAQById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateFAQ(FAQ model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Question = model.Question,
+                    Answer = model.Answer,
+                    Type = model.Type,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateFAQ", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
 
     }
 }

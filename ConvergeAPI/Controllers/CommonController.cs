@@ -94,19 +94,6 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-        [HttpGet("GetBenefit")]
-        public async Task<IActionResult> GetBenefit(int? Id)
-        {
-            try
-            {
-                var resp = await _commonService.GetBenefit(Id);
-                return Ok(ResponseHelper.GetSuccessResponse(resp));
-            }
-            catch (Exception ex)
-            {
-                return Ok(ResponseHelper.GetFailureResponse());
-            }
-        }
         [HttpGet("GetStudentSuccess")]
         public async Task<IActionResult> GetStudentSuccess(int? Id)
         {
@@ -346,7 +333,243 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-        [HttpGet("GetTestimonial")]
+
+        [HttpPost("InsertUpdatePotentialJobField")]
+        public async Task<IActionResult> InsertUpdatePotentialJobField(PotentialJobField model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdatePotentialJobField(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+
+        }
+
+        [HttpPost("InsertUpdateBenefit")]
+        public async Task<IActionResult> InsertUpdateBenefit([FromForm] Benefit model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateBenefit(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+
+        }
+
+        [HttpPost("InsertUpdateTestimonial")]
+        public async Task<IActionResult> InsertUpdateTestimonial([FromForm] Testimonial model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateTestimonial(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+
+        }
+        [HttpGet("GetBenefit")]
+        public async Task<IActionResult> GetBenefit()
+        {
+            try
+            {
+                var resp = await _commonService.GetBenefit();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetBenefitById")]
+        public async Task<IActionResult> GetBenefitById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetBenefitById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetTestimonials")]
+        public async Task<IActionResult> GetTestimonials()
+        {
+            try
+            {
+                var resp = await _commonService.GetTestimonials();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetTestimonialsById")]
+        public async Task<IActionResult> GetTestimonialsById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetTestimonialsById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+
+        [HttpGet("GetAdmissionProcess")]
+        public async Task<IActionResult> GetAdmissionProcess()
+        {
+            try
+            {
+                var resp = await _commonService.GetAdmissionProcess();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetAdmissionProcessById")]
+        public async Task<IActionResult> GetAdmissionProcessById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetAdmissionProcessById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateAdmissionProcess")]
+        public async Task<IActionResult> InsertUpdateAdmissionProcess(AdmissionProcessModel model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateAdmissionProcess(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+
+        }
+
+        [HttpGet("GetKeySkill")]
+        public async Task<IActionResult> GetKeySkill()
+        {
+            try
+            {
+                var resp = await _commonService.GetKeySkill();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetKeySkillById")]
+        public async Task<IActionResult> GetKeySkillById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetKeySkillById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateKeySkill")]
+        public async Task<IActionResult> InsertUpdateKeySkill(KeySkill model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateKeySkill(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+
+        #region FAQ
+        [HttpGet("GetFAQ")]
+        public async Task<IActionResult> GetFAQ()
+        {
+            try
+            {
+                var resp = await _commonService.GetFAQ();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetFAQById")]
+        public async Task<IActionResult> GetFAQById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetFAQById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateFAQ")]
+        public async Task<IActionResult> InsertUpdateFAQ(FAQ model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateFAQ(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
+ [HttpGet("GetTestimonial")]
         public async Task<IActionResult> GetTestimonial(int? Id)
         {
             try
@@ -372,6 +595,8 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
+
+
 
     }
 }

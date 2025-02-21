@@ -34,6 +34,44 @@ namespace DataAccessLayer.Interface
         Task<dynamic> InsertUpdateMajorProgram(MajorProgram model);
         Task<dynamic> GetTestimonial(int? Id);
         Task<dynamic> GetAdmissionProcess(int? Id);
+        Task<dynamic> InsertUpdatePotentialJobField(PotentialJobField model);
+
+        Task<dynamic> InsertUpdateBenefit(Benefit model);
+        Task<dynamic> InsertUpdateTestimonial(Testimonial model);
+        Task<dynamic> GetBenefit();
+        Task<dynamic> GetBenefitById(int? Id);
+
+        Task<dynamic> GetTestimonials();
+        Task<dynamic> GetTestimonialsById(int? Id);
+
+        Task<dynamic> InsertUpdateAdmissionProcess(AdmissionProcessModel model);
+        Task<dynamic> GetAdmissionProcess();
+        Task<dynamic> GetAdmissionProcessById(int? Id);
+
+        Task<dynamic> InsertUpdateKeySkill(KeySkill model);
+        Task<dynamic> GetKeySkill();
+        Task<dynamic> GetKeySkillById(int? Id);
+
+
+        Task<dynamic> InsertUpdateFAQ(FAQ model);
+        Task<dynamic> GetFAQ();
+        Task<dynamic> GetFAQById(int? Id);
+
+        //Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model);
+        //Task<dynamic> GetKeyHighLight();
+        //Task<dynamic> GetKeyHighLightById(int? Id);
+
+        //Task<dynamic> InsertUpdateModuleCourse(ModuleCourse model);
+        //Task<dynamic> GetModuleCourse();
+        //Task<dynamic> GetModuleCourseById(int? Id);
+
+        //Task<dynamic> InsertUpdateApplicationTips(ApplicationTipsModel model);
+        //Task<dynamic> GetApplicationTips();
+        //Task<dynamic> GetApplicationTipsById(int? Id);
+
+        //Task<dynamic> InsertUpdateDocumentRequired(DocumentRequiredModel model);
+        //Task<dynamic> GetDocumentRequired();
+        //Task<dynamic> GetDocumentRequiredById(int? Id);
     }
 }
 

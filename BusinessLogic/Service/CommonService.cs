@@ -44,9 +44,16 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.InsertupdateAboutTheCourse(AboutTheCourse);
             return user;
         }
+
         public async Task<dynamic> GetPageByType(string Slug)
         {
             var user = await _commonRepository.GetPageByType(Slug);
+            return user;
+        }
+
+        public async Task<dynamic> GetTestimonialsById(int? Id)
+        {
+            var user = await _commonRepository.GetTestimonialsById(Id);
             return user;
         }
         public async Task<dynamic> GetMajorProgram(int? Id)
@@ -99,6 +106,11 @@ namespace BusinessLogicLayer.Service
         public async Task<dynamic> GetMajorProgramById(int? Id)
         {
             var user = await _commonRepository.GetMajorProgramById(Id);
+            return user;
+        }
+        public async Task<dynamic> GetBenefitById(int? Id)
+        {
+            var user = await _commonRepository.GetBenefitById(Id);
             return user;
         }
         public async Task<dynamic> InsertUpdateSchool(School model)
@@ -191,6 +203,17 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.GetMajors();
             return user;
         }
+
+        public async Task<dynamic> GetTestimonials()
+        {
+            var user = await _commonRepository.GetTestimonials();
+            return user;
+        }
+        public async Task<dynamic> GetBenefit()
+        {
+            var user = await _commonRepository.GetBenefit();
+            return user;
+        }
         public async Task<dynamic> GetCourses()
         {
             var user = await _commonRepository.GetCourses();
@@ -234,6 +257,239 @@ namespace BusinessLogicLayer.Service
             return user;
         }
         
+
+        public async Task<dynamic> InsertUpdatePotentialJobField(PotentialJobField model)
+        {
+            try
+            {
+                var res = await _commonRepository.InsertUpdatePotentialJobField(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateBenefit(Benefit model)
+        {
+            try
+            {
+                string attachmentName = null;
+                string attachmentUrl = null;
+
+                if (model.Attachment != null && model.Attachment.Length > 0)
+                {
+                    (attachmentName, attachmentUrl) = await Helper.AttachFileAsync(model.Attachment, _environment, 1);
+                    model.MenuImage = attachmentUrl;
+                }
+                var res = await _commonRepository.InsertUpdateBenefit(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> InsertUpdateTestimonial(Testimonial model)
+        {
+            try
+            {
+                string attachmentName = null;
+                string attachmentUrl = null;
+
+                if (model.Attachment != null && model.Attachment.Length > 0)
+                {
+                    (attachmentName, attachmentUrl) = await Helper.AttachFileAsync(model.Attachment, _environment, 1);
+                    model.MenuImage = attachmentUrl;
+                }
+                var res = await _commonRepository.InsertUpdateTestimonial(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetAdmissionProcess()
+        {
+            var user = await _commonRepository.GetAdmissionProcess();
+            return user;
+        }
+        public async Task<dynamic> GetAdmissionProcessById(int? Id)
+        {
+            var user = await _commonRepository.GetAdmissionProcessById(Id);
+            return user;
+        }
+        public async Task<dynamic> InsertUpdateAdmissionProcess(AdmissionProcessModel model)
+        {
+            try
+            {
+                var res = await _commonRepository.InsertUpdateAdmissionProcess(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetKeySkill()
+        {
+            var user = await _commonRepository.GetKeySkill();
+            return user;
+        }
+        public async Task<dynamic> GetKeySkillById(int? Id)
+        {
+            var user = await _commonRepository.GetKeySkillById(Id);
+            return user;
+        }
+        public async Task<dynamic> InsertUpdateKeySkill(KeySkill model)
+        {
+            try
+            {
+                var res = await _commonRepository.InsertUpdateKeySkill(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        #region FAQ
+        public async Task<dynamic> GetFAQ()
+        {
+            var user = await _commonRepository.GetFAQ();
+            return user;
+        }
+        public async Task<dynamic> GetFAQById(int? Id)
+        {
+            var user = await _commonRepository.GetFAQById(Id);
+            return user;
+        }
+        public async Task<dynamic> InsertUpdateFAQ(FAQ model)
+        {
+            try
+            {
+                var res = await _commonRepository.InsertUpdateFAQ(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+        //#region KeyHighLight
+        //public async Task<dynamic> GetKeyHighLight()
+        //{
+        //    var user = await _commonRepository.GetKeyHighLight();
+        //    return user;
+        //}
+        //public async Task<dynamic> GetKeyHighLightById(int? Id)
+        //{
+        //    var user = await _commonRepository.GetKeyHighLightById(Id);
+        //    return user;
+        //}
+        //public async Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model)
+        //{
+        //    try
+        //    {
+        //        var res = await _commonRepository.InsertUpdateKeyHighLight(model);
+        //        return res;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return (null);
+        //    }
+
+        //}
+        //#endregion
+
+        //#region ModuleCourse
+        //public async Task<dynamic> GetModuleCourse()
+        //{
+        //    var user = await _commonRepository.GetModuleCourse();
+        //    return user;
+        //}
+        //public async Task<dynamic> GetModuleCourseById(int? Id)
+        //{
+        //    var user = await _commonRepository.GetModuleCourseById(Id);
+        //    return user;
+        //}
+        //public async Task<dynamic> InsertUpdateModuleCourse(ModuleCourse model)
+        //{
+        //    try
+        //    {
+        //        var res = await _commonRepository.InsertUpdateModuleCourse(model);
+        //        return res;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return (null);
+        //    }
+
+        //}
+        //#endregion
+
+        //#region ApplicationTips
+        //public async Task<dynamic> GetApplicationTips()
+        //{
+        //    var user = await _commonRepository.GetApplicationTips();
+        //    return user;
+        //}
+        //public async Task<dynamic> GetApplicationTipsById(int? Id)
+        //{
+        //    var user = await _commonRepository.GetApplicationTipsById(Id);
+        //    return user;
+        //}
+        //public async Task<dynamic> InsertUpdateApplicationTips(ApplicationTipsModel model)
+        //{
+        //    try
+        //    {
+        //        var res = await _commonRepository.InsertUpdateApplicationTips(model);
+        //        return res;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return (null);
+        //    }
+
+        //}
+        //#endregion
+
+        //#region DocumentRequired
+        //public async Task<dynamic> GetDocumentRequired()
+        //{
+        //    var user = await _commonRepository.GetDocumentRequired();
+        //    return user;
+        //}
+        //public async Task<dynamic> GetDocumentRequiredById(int? Id)
+        //{
+        //    var user = await _commonRepository.GetDocumentRequiredById(Id);
+        //    return user;
+        //}
+        //public async Task<dynamic> InsertUpdateDocumentRequired(DocumentRequiredModel model)
+        //{
+        //    try
+        //    {
+        //        var res = await _commonRepository.InsertUpdateDocumentRequired(model);
+        //        return res;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return (null);
+        //    }
+
+        //}
+        //#endregion
 
     }
 }

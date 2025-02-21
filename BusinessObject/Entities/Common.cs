@@ -82,14 +82,15 @@ namespace BusinessObjectsLayer.Entities
 
     }
 
+    
     public class School
     {
         public int? Id { get; set; }
         public string? Title { get; set; }
         public string? MenuHeading { get; set; }
         public string? MenuDescription { get; set; }
-        public string? MenuImage { get; set; }
         public int? UserId { get; set; }
+        public string? MenuImage { get; set; }
         public IFormFile? Attachment { get; set; }
 
     }
@@ -124,12 +125,24 @@ namespace BusinessObjectsLayer.Entities
 
     }
 
+    public class Benefit
+    {
+        public int? Id { get; set; }
+        public string? Heading { get; set; }
+        public string? Description { get; set; }
+        public string? MenuImage { get; set; }
+        public IFormFile? Attachment { get; set; }
+        public int? UserId { get; set; }
+
+    }
+
     public class Testimonial
     {
         public int? Id { get; set; }
         public string? Name { get; set; }
         public string? Designation { get; set; }
-        public string? Image { get; set; }
+        public string? MenuImage { get; set; }
+        public IFormFile? Attachment { get; set; }
         public string? Heading { get; set; }
         public string? Description { get; set; }
         public int? UserId { get; set; }
@@ -140,6 +153,24 @@ namespace BusinessObjectsLayer.Entities
     {
         public int? Id { get; set; }
         public string? Title { get; set; }
+        public int? UserId { get; set; }
+
+    }
+
+    public class KeySkill
+    {
+        public int? Id { get; set; }
+        public string? Title { get; set; }
+        public int? UserId { get; set; }
+
+    }
+
+    public class FAQ
+    {
+        public int? Id { get; set; }
+        public string? Question { get; set; }
+        public string? Answer { get; set; }
+        public int? Type { get; set; }
         public int? UserId { get; set; }
 
     }
