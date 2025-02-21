@@ -9,6 +9,7 @@ namespace DataAccessLayer.Interface
 {
     public interface ICommonRepository
     {
+        Task<dynamic> GetDynamicNavigation();
         Task<dynamic> InsertupdatePage(PageModel model);
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
         Task<dynamic> GetPageByType(int? Id, int? TypeId);
@@ -57,7 +58,7 @@ namespace DataAccessLayer.Interface
         Task<dynamic> InsertUpdateFAQ(FAQ model);
         Task<dynamic> GetFAQ();
         Task<dynamic> GetFAQById(int? Id);
-
+      
         Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model);
         Task<dynamic> GetKeyHighLight();
         Task<dynamic> GetKeyHighLightById(int? Id);
