@@ -350,12 +350,13 @@ namespace DataAccessLayer.Repositories
             }
 
         }
-        public async Task<dynamic> GetPageByType(string Slug)
+        public async Task<dynamic> GetPageByType(int? Id, string Slug)
         {
             try
             {
                 var param = new
                 {
+                    Id = Id,
                     Slug = Slug
                 };
                 using var connection = _context.CreateConnection();
@@ -399,6 +400,21 @@ namespace DataAccessLayer.Repositories
             {
                 return null;
             } 
+        }
+        public async Task<dynamic> InsertupdatePage(PageModel model)
+        {
+            var resp = new Object();
+            try
+            {
+                using var connection = _context.CreateConnection();
+                resp = await connection.QueryFirstOrDefaultAsync<dynamic>("InsertUpdatePage", model);
+                return resp;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public async Task<dynamic> GetMajor(int? Id)
         {

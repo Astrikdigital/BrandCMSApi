@@ -9,8 +9,9 @@ namespace DataAccessLayer.Interface
 {
     public interface ICommonRepository
     {
+        Task<dynamic> InsertupdatePage(PageModel model);
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
-        Task<dynamic> GetPageByType(string Slug);
+        Task<dynamic> GetPageByType(int? Id, string Slug);
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> GetMajorProgram(int? Id);
         Task<dynamic> GetPotentialJobfield(int? Id);

@@ -29,12 +29,25 @@ namespace ConvergeAPI.Controllers
         {
             _commonService = commonService;
         }
-        [HttpGet("GetPageByType")]
-        public async Task<IActionResult> GetPageByType(string Slug)
+        [HttpPost("InsertupdatePage")]
+        public async Task<IActionResult> InsertupdatePage(PageModel model)
         {
             try
             {
-                var resp = await _commonService.GetPageByType(Slug);
+                var resp = await _commonService.InsertupdatePage(model);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+        [HttpGet("GetPageByType")]
+        public async Task<IActionResult> GetPageByType(int? Id,string Slug)
+        {
+            try
+            {
+                var resp = await _commonService.GetPageByType(Id,Slug);
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
@@ -435,23 +448,7 @@ namespace ConvergeAPI.Controllers
             {
                 return Ok(ResponseHelper.GetFailureResponse());
             }
-        }
-
-
-        [HttpGet("GetAdmissionProcess")]
-        public async Task<IActionResult> GetAdmissionProcess()
-        {
-            try
-            {
-                var resp = await _commonService.GetAdmissionProcess();
-                return Ok(ResponseHelper.GetSuccessResponse(resp));
-            }
-            catch (Exception ex)
-            {
-                return Ok(ResponseHelper.GetFailureResponse());
-            }
-        }
-
+        } 
         [HttpGet("GetAdmissionProcessById")]
         public async Task<IActionResult> GetAdmissionProcessById(int? Id)
         {

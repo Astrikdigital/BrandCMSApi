@@ -44,10 +44,16 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.InsertupdateAboutTheCourse(AboutTheCourse);
             return user;
         }
-
-        public async Task<dynamic> GetPageByType(string Slug)
+        public async Task<dynamic> InsertupdatePage(PageModel model)
         {
-            var user = await _commonRepository.GetPageByType(Slug);
+            var user = await _commonRepository.InsertupdatePage(model);
+            return user;
+        }
+        
+
+        public async Task<dynamic> GetPageByType(int? Id, string Slug)
+        {
+            var user = await _commonRepository.GetPageByType(Id, Slug);
             return user;
         }
 

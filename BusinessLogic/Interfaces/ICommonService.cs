@@ -10,7 +10,9 @@ namespace BusinessLogicLayer.Interfaces
     public interface ICommonService
     {
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
-        Task<dynamic> GetPageByType(string Slug);
+        Task<dynamic> GetPageByType(int? Id, string Slug);
+        Task<dynamic> InsertupdatePage(PageModel model);
+        
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
 
