@@ -302,7 +302,7 @@ namespace DataAccessLayer.Repositories
             }
 
         }
-               public async Task<dynamic> GetPageByType(string Slug)
+        public async Task<dynamic> GetPageByType(string Slug)
         {
             try
             {
