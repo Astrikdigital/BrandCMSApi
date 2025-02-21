@@ -762,5 +762,290 @@ namespace DataAccessLayer.Repositories
         }
         #endregion
 
+
+        #region KeyHighLight_REPO
+        public async Task<dynamic> GetKeyHighLight()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetKeyHighLight", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetKeyHighLightById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetKeyHighLightById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateKeyHighLight(KeyHighLightModel model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    LeftText = model.LeftText,
+                    RightText = model.RightText,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateKeyHighLight", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+
+        #region ModuleCourse_REPO
+        public async Task<dynamic> GetModuleCourse()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetModuleCourse", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetModuleCourseById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetModuleCourseById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateModuleCourse(ModuleCourse model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Heading = model.Heading,
+                    MajorProgramCourseId = model.MajorProgramCourseId,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateModuleCourse", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+        #region ApplicationTips_REPO
+        public async Task<dynamic> GetApplicationTips()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetApplicationTips", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetApplicationTipsById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetApplicationTipsById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateApplicationTips(ApplicationTipsModel model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    LeftText = model.LeftText,
+                    RightText = model.RightText,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateApplicationTips", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+
+        #region DocumentRequired_REPO
+        public async Task<dynamic> GetDocumentRequired()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetDocumentRequired", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetDocumentRequiredById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetDocumentRequiredById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateDocumentRequired(DocumentRequiredModel model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    LeftText = model.LeftText,
+                    RightText = model.RightText,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateDocumentRequired", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+
+        #region StudentSuccess
+        public async Task<dynamic> GetStudentSuccess()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetStudentSuccess", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> GetStudentSuccessById(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetStudentSuccessById", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
+        public async Task<dynamic> InsertUpdateStudentSuccess(StudentSucess model)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = model.Id,
+                    Heading = model.Heading,
+                    Description = model.Description,
+                    Image = model.MenuImage,
+                    UserId = model.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateStudentSuccess", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
     }
 }

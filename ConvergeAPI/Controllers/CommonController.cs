@@ -94,23 +94,7 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-        [HttpGet("GetStudentSuccess")]
-        public async Task<IActionResult> GetStudentSuccess(int? Id)
-        {
-            try
-            {
-                var resp = await _commonService.GetStudentSuccess(Id);
-                return Ok(ResponseHelper.GetSuccessResponse(resp));
-            }
-            catch (Exception ex)
-            {
-                return Ok(ResponseHelper.GetFailureResponse());
-            }
-        }
-        
-
-
-
+       
 
         [HttpGet("GetSchools")]
         public async Task<IActionResult> GetSchools()
@@ -436,14 +420,12 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-
-
-        [HttpGet("GetAdmissionProcess")]
-        public async Task<IActionResult> GetAdmissionProcess()
+        [HttpGet("GetTestimonial")]
+        public async Task<IActionResult> GetTestimonial(int? Id)
         {
             try
             {
-                var resp = await _commonService.GetAdmissionProcess();
+                var resp = await _commonService.GetTestimonial(Id);
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
@@ -451,6 +433,20 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
+        [HttpGet("GetAdmissionProcess")]
+        public async Task<IActionResult> GetAdmissionProcess(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetAdmissionProcess(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
 
         [HttpGet("GetAdmissionProcessById")]
         public async Task<IActionResult> GetAdmissionProcessById(int? Id)
@@ -569,12 +565,14 @@ namespace ConvergeAPI.Controllers
             }
         }
         #endregion
- [HttpGet("GetTestimonial")]
-        public async Task<IActionResult> GetTestimonial(int? Id)
+
+        #region KeyHighLight
+        [HttpGet("GetKeyHighLight")]
+        public async Task<IActionResult> GetKeyHighLight()
         {
             try
             {
-                var resp = await _commonService.GetTestimonial(Id);
+                var resp = await _commonService.GetKeyHighLight();
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
@@ -582,12 +580,13 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
-        [HttpGet("GetAdmissionProcess")]
-        public async Task<IActionResult> GetAdmissionProcess(int? Id)
+
+        [HttpGet("GetKeyHighLightById")]
+        public async Task<IActionResult> GetKeyHighLightById(int? Id)
         {
             try
             {
-                var resp = await _commonService.GetAdmissionProcess(Id);
+                var resp = await _commonService.GetKeyHighLightById(Id);
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
@@ -595,6 +594,202 @@ namespace ConvergeAPI.Controllers
                 return Ok(ResponseHelper.GetFailureResponse());
             }
         }
+
+        [HttpPost("InsertUpdateKeyHighLight")]
+        public async Task<IActionResult> InsertUpdateKeyHighLight(KeyHighLightModel model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateKeyHighLight(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
+
+        #region ModuleCourse
+        [HttpGet("GetModuleCourse")]
+        public async Task<IActionResult> GetModuleCourse()
+        {
+            try
+            {
+                var resp = await _commonService.GetModuleCourse();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetModuleCourseById")]
+        public async Task<IActionResult> GetModuleCourseById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetModuleCourseById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateModuleCourse")]
+        public async Task<IActionResult> InsertUpdateModuleCourse(ModuleCourse model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateModuleCourse(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
+
+        #region ApplicationTips
+        [HttpGet("GetApplicationTips")]
+        public async Task<IActionResult> GetApplicationTips()
+        {
+            try
+            {
+                var resp = await _commonService.GetApplicationTips();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetApplicationTipsById")]
+        public async Task<IActionResult> GetApplicationTipsById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetApplicationTipsById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateApplicationTips")]
+        public async Task<IActionResult> InsertUpdateApplicationTips(ApplicationTipsModel model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateApplicationTips(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
+
+        #region DocumentRequired
+        [HttpGet("GetDocumentRequired")]
+        public async Task<IActionResult> GetDocumentRequired()
+        {
+            try
+            {
+                var resp = await _commonService.GetDocumentRequired();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetDocumentRequiredById")]
+        public async Task<IActionResult> GetDocumentRequiredById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetApplicationTipsById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateDocumentRequired")]
+        public async Task<IActionResult> InsertUpdateDocumentRequired(DocumentRequiredModel model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateDocumentRequired(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
+
+        #region StudentSuccess
+        [HttpGet("GetStudentSuccess")]
+        public async Task<IActionResult> GetStudentSuccess()
+        {
+            try
+            {
+                var resp = await _commonService.GetStudentSuccess();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpGet("GetStudentSuccessById")]
+        public async Task<IActionResult> GetStudentSuccessById(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetStudentSuccessById(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
+        [HttpPost("InsertUpdateStudentSuccess")]
+        public async Task<IActionResult> InsertUpdateStudentSuccess(StudentSucess model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateStudentSuccess(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+
+            }
+        }
+        #endregion
 
 
 

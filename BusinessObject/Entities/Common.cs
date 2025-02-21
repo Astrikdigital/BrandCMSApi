@@ -120,7 +120,8 @@ namespace BusinessObjectsLayer.Entities
         public int? Id { get; set; }
         public string? Heading { get; set; }
         public string? Description { get; set; }
-        public string? Image { get; set; }
+        public string? MenuImage { get; set; }
+        public IFormFile? Attachment { get; set; }
         public int? UserId { get; set; }
 
     }
