@@ -546,6 +546,20 @@ namespace ConvergeAPI.Controllers
             }
         }
 
+        [HttpGet("GetDynamicNavigation")]
+        public async Task<IActionResult> GetDynamicNavigation()
+        {
+            try
+            {
+                var resp = await _commonService.GetDynamicNavigation();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
         #region FAQ
         [HttpGet("GetFAQ")]
         public async Task<IActionResult> GetFAQ()

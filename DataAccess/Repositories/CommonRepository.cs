@@ -27,6 +27,19 @@ namespace DataAccessLayer.Repositories
             _httpContextAccessor = httpContextAccessor;
         }
 
+        public async Task<dynamic> GetDynamicNavigation()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetDynamicNavigation", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
         public async Task<dynamic> GetSchools()
         {
             try

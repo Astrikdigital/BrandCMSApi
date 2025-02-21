@@ -12,7 +12,7 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
         Task<dynamic> GetPageByType(int? Id, int? TypeId);
         Task<dynamic> InsertupdatePage(PageModel model);
-        
+        Task<dynamic> GetDynamicNavigation();
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
         Task<dynamic> GetMajorProgramCourse();
