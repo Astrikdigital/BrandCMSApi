@@ -51,9 +51,9 @@ namespace BusinessLogicLayer.Service
         }
         
 
-        public async Task<dynamic> GetPageByType(int? Id, string Slug)
+        public async Task<dynamic> GetPageByType(int? Id, int? TypeId)
         {
-            var user = await _commonRepository.GetPageByType(Id, Slug);
+            var user = await _commonRepository.GetPageByType(Id, TypeId);
             return user;
         }
 

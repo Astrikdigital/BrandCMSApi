@@ -364,14 +364,14 @@ namespace DataAccessLayer.Repositories
             }
 
         }
-        public async Task<dynamic> GetPageByType(int? Id, string Slug)
+        public async Task<dynamic> GetPageByType(int? Id, int? TypeId)
         {
             try
             {
                 var param = new
                 {
                     Id = Id,
-                    Slug = Slug
+                    TypeId = TypeId
                 };
                 using var connection = _context.CreateConnection();
                 var listschoolpage = (await connection.QueryAsync<SchoolModel>("GetPageByType", param: param)).ToList();

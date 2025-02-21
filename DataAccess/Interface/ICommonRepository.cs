@@ -11,7 +11,7 @@ namespace DataAccessLayer.Interface
     {
         Task<dynamic> InsertupdatePage(PageModel model);
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
-        Task<dynamic> GetPageByType(int? Id, string Slug);
+        Task<dynamic> GetPageByType(int? Id, int? TypeId);
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> GetMajorProgram(int? Id);
         Task<dynamic> GetPotentialJobfield(int? Id);

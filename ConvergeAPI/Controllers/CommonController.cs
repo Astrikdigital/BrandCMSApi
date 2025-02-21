@@ -43,11 +43,11 @@ namespace ConvergeAPI.Controllers
             }
         }
         [HttpGet("GetPageByType")]
-        public async Task<IActionResult> GetPageByType(int? Id,string Slug)
+        public async Task<IActionResult> GetPageByType(int? Id,int? TypeId)
         {
             try
             {
-                var resp = await _commonService.GetPageByType(Id,Slug);
+                var resp = await _commonService.GetPageByType(Id, TypeId);
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
