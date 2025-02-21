@@ -388,9 +388,13 @@ namespace DataAccessLayer.Repositories
 
                             programContainer["JSON"] = json;
                         }
+
                         objDict[item?.Key?.Replace(" ", string.Empty)] = programContainer;
                         if(SectionIds == "") SectionIds= item.Id.ToString();
-                        else  SectionIds += ","+item.Id.ToString();
+                        else
+                        {
+                            if(item.Key != "Page") SectionIds += "," + item.Id.ToString();
+                        }
                     }
                 objDict["SectionIds"] = SectionIds;
                 return objDict;
