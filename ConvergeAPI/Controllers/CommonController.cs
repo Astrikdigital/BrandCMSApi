@@ -760,7 +760,7 @@ namespace ConvergeAPI.Controllers
         {
             try
             {
-                var resp = await _commonService.GetApplicationTipsById(Id);
+                var resp = await _commonService.GetDocumentRequiredById(Id);
                 return Ok(ResponseHelper.GetSuccessResponse(resp));
             }
             catch (Exception ex)
