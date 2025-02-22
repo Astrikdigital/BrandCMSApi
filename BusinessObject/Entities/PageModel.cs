@@ -23,6 +23,10 @@ namespace BusinessObjectsLayer.Entities
         public string? WhyChooseus { get; set; }
         public string? ChoosetheRight { get; set; }
         public string? KeySkills { get; set; }
+        public string? TutionFees { get; set; }
+        public string? GloballyRecognized { get; set; }
+        public string? AboutTheCourse { get; set; }
+        
 
     }
      
