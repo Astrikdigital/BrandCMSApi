@@ -565,6 +565,12 @@ namespace BusinessLogicLayer.Service
             }
 
         }
+
+        public async Task<dynamic> GetFooterSection(int? Id)
+        {
+            var user = await _commonRepository.GetFooterSection(Id);
+            return user;
+        }
         #endregion
 
     }

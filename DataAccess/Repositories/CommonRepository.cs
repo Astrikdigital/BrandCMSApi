@@ -1132,6 +1132,26 @@ namespace DataAccessLayer.Repositories
 
         }
 
+
+        public async Task<dynamic> GetFooterSection(int? Id)
+        {
+            try
+            {
+                var param = new
+                {
+                    Id = Id
+
+                };
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetFooterSection", param: param, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
         #endregion
 
     }

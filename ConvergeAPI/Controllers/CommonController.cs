@@ -860,6 +860,20 @@ namespace ConvergeAPI.Controllers
 
             }
         }
+
+        [HttpGet("GetFooterSection")]
+        public async Task<IActionResult> GetFooterSection(int? Id)
+        {
+            try
+            {
+                var resp = await _commonService.GetFooterSection(Id);
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
         #endregion
     }
 }

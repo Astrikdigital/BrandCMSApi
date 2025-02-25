@@ -85,7 +85,7 @@ namespace BusinessLogicLayer.Interfaces
 
         Task<dynamic> InsertUpdateFooterPages(FooterSection model);
         //Task<dynamic> GetStudentSuccess();
-        //Task<dynamic> GetStudentSuccessById(int? Id);
+        Task<dynamic> GetFooterSection(int? Id);
 
     }
 }
