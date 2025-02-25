@@ -560,6 +560,20 @@ namespace ConvergeAPI.Controllers
             }
         }
 
+        [HttpGet("GetFooterSection")]
+        public async Task<IActionResult> GetFooterSection()
+        {
+            try
+            {
+                var resp = await _commonService.GetFooterSection();
+                return Ok(ResponseHelper.GetSuccessResponse(resp));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
+            }
+        }
+
         #region FAQ
         [HttpGet("GetFAQ")]
         public async Task<IActionResult> GetFAQ()
@@ -830,7 +844,22 @@ namespace ConvergeAPI.Controllers
         }
         #endregion
 
+        #region FooterSection
 
+        [HttpPost("InsertUpdateFooterPages")]
+        public async Task<IActionResult> InsertUpdateFooterPages(FooterSection model)
+        {
+            try
+            {
+                var result = await _commonService.InsertUpdateFooterPages(model);
+                return Ok(ResponseHelper.GetSuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return Ok(ResponseHelper.GetFailureResponse());
 
+            }
+        }
+        #endregion
     }
 }

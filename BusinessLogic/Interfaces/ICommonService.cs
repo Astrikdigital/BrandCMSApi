@@ -13,6 +13,7 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> GetPageByType(int? Id, int? TypeId);
         Task<dynamic> InsertupdatePage(PageModel model);
         Task<dynamic> GetDynamicNavigation();
+        Task<dynamic> GetFooterSection();
         Task<dynamic> GetMajor(int? Id);
         Task<dynamic> DeleteTableRow(string? tableName, int? Id);
         Task<dynamic> GetMajorProgramCourse();
@@ -80,6 +81,11 @@ namespace BusinessLogicLayer.Interfaces
         Task<dynamic> InsertUpdateStudentSuccess(StudentSucess model);
         Task<dynamic> GetStudentSuccess();
         Task<dynamic> GetStudentSuccessById(int? Id);
+
+
+        Task<dynamic> InsertUpdateFooterPages(FooterSection model);
+        //Task<dynamic> GetStudentSuccess();
+        //Task<dynamic> GetStudentSuccessById(int? Id);
 
     }
 }

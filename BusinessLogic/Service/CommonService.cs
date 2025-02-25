@@ -103,6 +103,12 @@ namespace BusinessLogicLayer.Service
             var user = await _commonRepository.GetDynamicNavigation();
             return user;
         }
+
+        public async Task<dynamic> GetFooterSection()
+        {
+            var user = await _commonRepository.GetFooterSection();
+            return user;
+        }
         public async Task<dynamic> GetSchoolsById(int? Id)
         {
             var user = await _commonRepository.GetSchoolsById(Id);
@@ -532,6 +538,25 @@ namespace BusinessLogicLayer.Service
                     model.MenuImage = attachmentUrl;
                 }
                 var res = await _commonRepository.InsertUpdateStudentSuccess(model);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        #endregion
+
+
+        #region FooterSection
+
+        public async Task<dynamic> InsertUpdateFooterPages(FooterSection model)
+        {
+            try
+            {
+                
+                var res = await _commonRepository.InsertUpdateFooterPages(model);
                 return res;
             }
             catch (Exception ex)

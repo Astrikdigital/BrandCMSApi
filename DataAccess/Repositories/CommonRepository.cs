@@ -32,7 +32,20 @@ namespace DataAccessLayer.Repositories
             try
             {
                 using var con = _context.CreateConnection();
-                return (await con.QueryAsync("GetDynamicNavigation", commandType: CommandType.StoredProcedure)).ToList();
+                return (await con.QueryAsync("GetNavigation", commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+        public async Task<dynamic> GetFooterSection()
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                return (await con.QueryAsync("GetFooterSection", commandType: CommandType.StoredProcedure)).ToList();
             }
             catch (Exception ex)
             {
@@ -1092,6 +1105,33 @@ namespace DataAccessLayer.Repositories
             }
 
         }
+        #endregion
+
+
+        #region FooterSection
+        public async Task<dynamic> InsertUpdateFooterPages(FooterSection mode)
+        {
+            try
+            {
+                using var con = _context.CreateConnection();
+                var parameters = new
+                {
+                    Id = mode.Id,
+                    FooterId = mode.FooterId,
+                    MainHeading = mode.MainHeading,
+                    PagesIds = mode.PagesIds,
+                    Sequence = mode.Sequence,
+                    UserId = mode.UserId
+                };
+                return (await con.QueryAsync("InsertUpdateFooterPages", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+            }
+            catch (Exception ex)
+            {
+                return (null);
+            }
+
+        }
+
         #endregion
 
     }

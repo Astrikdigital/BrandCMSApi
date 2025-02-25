@@ -10,6 +10,7 @@ namespace DataAccessLayer.Interface
     public interface ICommonRepository
     {
         Task<dynamic> GetDynamicNavigation();
+        Task<dynamic> GetFooterSection();
         Task<dynamic> InsertupdatePage(PageModel model);
         Task<dynamic> InsertupdateAboutTheCourse(AboutTheCourseModel AboutTheCourse);
         Task<dynamic> GetPageByType(int? Id, int? TypeId);
@@ -78,6 +79,11 @@ namespace DataAccessLayer.Interface
         Task<dynamic> InsertUpdateStudentSuccess(StudentSucess model);
         Task<dynamic> GetStudentSuccess();
         Task<dynamic> GetStudentSuccessById(int? Id);
+
+
+        Task<dynamic> InsertUpdateFooterPages(FooterSection model);
+        //Task<dynamic> GetStudentSuccess();
+        //Task<dynamic> GetStudentSuccessById(int? Id);
     }
 }
 

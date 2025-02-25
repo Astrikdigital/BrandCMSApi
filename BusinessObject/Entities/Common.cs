@@ -177,5 +177,15 @@ namespace BusinessObjectsLayer.Entities
     }
 
 
+    public class FooterSection
+    {
+        public int? Id { get; set; }
+        public string? MainHeading { get; set; }
+        public string? PagesIds { get; set; }
+        public int? Sequence { get; set; }
+        public int? FooterId { get; set; }
+        public int? UserId { get; set; }
+
+    }
 
 }
